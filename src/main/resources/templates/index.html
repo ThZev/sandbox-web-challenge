@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Employee Administration Suite</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+</head>
+<body>
+<h1>Employee Administration Suite</h1>
+<div>
+    <h3><a th:href="@{/employee/create}">Employee Registration Form</a></h3>
+</div>
+</div>
+<div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col"> Name</th>
+            <th scope="col"> Surname</th>
+            <th scope="col"> Position</th>
+            <th scope="col"> Supervisor</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee : ${employeeList}">
+            <td scope="col" th:text="${employee.firstName}"></td>
+            <td scope="col" th:text="${employee.lastName}"></td>
+            <td scope="col" th:text="${employee.position}"></td>
+            <td scope="col" th:text="${employee.supervisor}"></td>
+            <td>
+                <a th:href="@{'/employee/update/' + ${employee.id}}">edit</a>
+            </td>
+            <td>
+                <a th:href="@{'/supervisor/assign/' + ${employee.id}}">assign supervisor</a>
+            </td>
+            <td>
+                <a th:href="@{'/employee/delete/' + ${employee.id}}">delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

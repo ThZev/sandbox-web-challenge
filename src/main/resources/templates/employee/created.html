@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/css/display-form.css}" />
+</head>
+<body>
+<h2>Created Employee </h2>
+<table>
+    <tbody>
+    <tr>
+        <td><strong>First name:</strong></td>
+        <td><span th:text="${employee.firstName}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Last name:</strong></td>
+        <td><span th:text="${employee.lastName}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Position:</strong></td>
+        <td><span th:text="${employee.position}"></span></td>
+    </tr>
+    <tr>
+        <td colspan="2">&nbsp;<a th:href="@{/}"
+                                 class="btn btn-success"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Back to menu
+        </a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

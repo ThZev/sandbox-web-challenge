@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Employee</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/display-form.css}"/>
+</head>
+<body>
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2>Assign supervisor to employee</h2>
+            <form th:action="@{'/supervisor/assign/' + ${employeeId}}" th:object="${supervisorEntity}" method="post">
+                <div class="form-row">
+                    <div class="col-md-6 form-group">
+                        <label>firstName</label>
+                        <input type="text" class="form-control" th:field="*{firstName}">
+                        <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></td>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>lastName</label>
+                        <input type="text" class="form-control" th:field="*{lastName}">
+                        <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></td>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-3">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+</script>
+</body>
+</html>
